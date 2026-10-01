@@ -163,7 +163,7 @@ body.type-giftshop::after {
   width: 82mm;
   height: 15.1mm;
   margin: 14mm auto 0;
-  background-image: url("__LOGO_URL__");
+  background-image: url("https://cdn.jsdelivr.net/gh/LandesforstMV/waldstiftung-styles@main/Logo-gruen-transparent.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
