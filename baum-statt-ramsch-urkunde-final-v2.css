@@ -1,0 +1,204 @@
+/* ==========================================================
+   WALDSTIFTUNG MV – BAUM STATT RAMSCH
+   Twingle Spendenurkunde – FINAL
+   Ziel: exakt der zuletzt abgestimmte Vorschau-Stand
+   Logo wird von Twingle aus den Organisationseinstellungen eingebunden.
+   ========================================================== */
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+html {
+  background: #e8e5de;
+}
+
+body.type-giftshop {
+  box-sizing: border-box;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0;
+  padding: 10mm 20.5mm 13mm;
+  background: #f5f3eb;
+  color: #2d2a26;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+
+  /* alten Twingle-Rahmen sicher entfernen */
+  border: 0 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ----------------------------------------------------------
+   Kampagnenmotiv oben
+   ---------------------------------------------------------- */
+
+.product-image {
+  margin: 0 auto 14.5mm;
+  text-align: center;
+}
+
+.product-image img {
+  display: block;
+  width: 58mm;
+  height: 58mm;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+/* Zusätzliche Twingle-Überschrift ausblenden.
+   "BAUM STATT RAMSCH" steht bereits im Motivbild. */
+h1 {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ----------------------------------------------------------
+   Empfänger + Baum-Hero
+   Erwartete Twingle-Struktur:
+   <p class="motif-teaser">
+     <strong>Max Mustermann</strong><br><br>
+     <strong>1 Baum für morgen</strong><br>
+     für mehr Wald in Mecklenburg-Vorpommern.
+   </p>
+   ---------------------------------------------------------- */
+
+.motif-teaser {
+  margin: 0 auto 11mm;
+  color: #2d2a26;
+  font-size: 11.5pt;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* "Für" vor dem Namen ergänzen */
+.motif-teaser::before {
+  content: "Für";
+  display: block;
+  margin-bottom: 1.2mm;
+  color: #6b665f;
+  font-size: 10.5pt;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* Empfängername */
+.motif-teaser strong:first-of-type {
+  display: inline-block;
+  color: #23573c;
+  font-size: 20.5pt;
+  line-height: 1.12;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+/* Hauptaussage: 1 BAUM FÜR MORGEN / 2 BÄUME FÜR MORGEN ... */
+.motif-teaser strong:nth-of-type(2) {
+  display: inline-block;
+  margin-top: 10mm;
+  margin-bottom: 2mm;
+  color: #23573c;
+  font-size: 31pt;
+  line-height: 1.04;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------
+   Persönliche Botschaft
+   ---------------------------------------------------------- */
+
+.message {
+  box-sizing: border-box;
+  margin: 0 auto 12mm;
+  padding: 7mm 9mm;
+  background: #ecefe5;
+  color: #2d2a26;
+
+  border: 0 !important;
+  border-left: 1.2mm solid #b8664d !important;
+
+  font-size: 13pt;
+  line-height: 1.45;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* ----------------------------------------------------------
+   Motivbeschreibung
+   Soll in Twingle leer bleiben.
+   Sicherheitshalber ausblenden.
+   ---------------------------------------------------------- */
+
+.motif-text {
+  display: none !important;
+}
+
+/* ----------------------------------------------------------
+   Unterer Infoblock
+   Twingle-Inhalt:
+   <strong>Ein Geschenk, das bleibt.</strong>
+   ...
+   <strong>Dazu laden wir dich herzlich ein.</strong>
+   ...
+   <strong>@waldstiftungmv</strong>
+   ---------------------------------------------------------- */
+
+.project-info-text2 {
+  max-width: 156mm;
+  margin: 0 auto;
+  color: #2d2a26;
+  font-size: 10.5pt;
+  line-height: 1.58;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* erste Hervorhebung = "Ein Geschenk, das bleibt." */
+.project-info-text2 strong:first-of-type {
+  display: inline-block;
+  margin-bottom: 3.5mm;
+  color: #23573c;
+  font-size: 15.5pt;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* alle weiteren Hervorhebungen bewusst NICHT größer setzen */
+.project-info-text2 strong:not(:first-of-type) {
+  color: #23573c;
+  font-size: 10.5pt;
+  line-height: inherit;
+  font-weight: 700;
+}
+
+/* Falls Twingle Absätze setzt: gleichmäßige Abstände */
+.project-info-text2 p {
+  margin: 0 0 3mm;
+}
+
+/* ----------------------------------------------------------
+   Twingle-Logo
+   NICHT per CSS einbinden.
+   Es wird aus Organisationseinstellungen > Design > Logo gezogen.
+   ---------------------------------------------------------- */
+
+/* ----------------------------------------------------------
+   PDF-Stabilität
+   ---------------------------------------------------------- */
+
+.product-image,
+.motif-teaser,
+.message,
+.project-info-text2 {
+  page-break-inside: avoid;
+}
