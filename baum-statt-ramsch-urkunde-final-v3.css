@@ -23,15 +23,8 @@ body.type-giftshop {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 
-  /* alten Twingle-Rahmen sicher entfernen */
-  border: 0 !important;
-  border-top: 0 !important;
-  border-left: 0 !important;
-  border-right: 0 !important;
-  border-bottom: 0 !important;
-  border-radius: 0 !important;
-  outline: 0 !important;
-  box-shadow: none !important;
+  /* Twingle-Rahmen  */
+
    border-color: #f5f3eb;
 }
 
