@@ -1,39 +1,91 @@
 /* ==========================================================
    WALDSTIFTUNG MV – BAUM STATT RAMSCH
-   Twingle Spendenurkunde – FINAL
+   Twingle Spendenurkunde – HARD FINAL
+   Änderungen:
+   - beigen Streifen oben/links eliminieren
+   - Motiv + gesamter Inhaltsblock weiter nach unten
+   - vorhandene Typohierarchie beibehalten
+   - Twingle-Logo weiterhin automatisch ausgeben
    ========================================================== */
 
 @page {
   size: A4 portrait;
   margin: 0;
+  background: #f5f3eb;
 }
 
-html {
-  background: #e8e5de;
+/* ----------------------------------------------------------
+   PDF-/Seitenhintergrund hart angleichen
+   Verhindert sichtbare Streifen an den Seitenrändern.
+   ---------------------------------------------------------- */
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100% !important;
+  background: #f5f3eb !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 body.type-giftshop {
   box-sizing: border-box;
-  width: 210mm;
-  min-height: 297mm;
-  margin: 0;
-  padding: 10mm 20.5mm 13mm;
-  background: #f5f3eb;
+  width: 210mm !important;
+  min-height: 297mm !important;
+  margin: 0 !important;
+
+  /* Innenabstand der Urkunde */
+  padding: 10mm 20.5mm 16mm !important;
+
+  background: #f5f3eb !important;
   color: #2d2a26;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 
-  /* Twingle-Rahmen  */
+  border: 0 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
 
-   border-color: #f5f3eb;
+/* Falls Twingle/PDF-Renderer Pseudo-Flächen anlegt */
+body.type-giftshop::before,
+body.type-giftshop::after {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* Mögliche äußere Wrapper ebenfalls neutralisieren */
+.page,
+.page-wrapper,
+.document,
+.document-page,
+.giftshop-page,
+.pdf-page,
+.pdf-wrapper {
+  margin: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: #f5f3eb !important;
 }
 
 /* ----------------------------------------------------------
-   Kampagnenmotiv oben
+   Kampagnenmotiv:
+   bewusst weiter nach unten setzen
    ---------------------------------------------------------- */
 
 .product-image {
-  margin: 0 auto 14.5mm;
+  margin: 12mm auto 16mm !important;
   text-align: center;
 }
 
@@ -45,8 +97,8 @@ body.type-giftshop {
   object-fit: cover;
 }
 
-/* Zusätzliche Twingle-Überschrift ausblenden.
-   "BAUM STATT RAMSCH" steht bereits im Motivbild. */
+/* Twingle-Überschrift ausblenden;
+   BAUM STATT RAMSCH steht bereits im Motiv */
 h1 {
   display: none !important;
   margin: 0 !important;
@@ -54,24 +106,18 @@ h1 {
 }
 
 /* ----------------------------------------------------------
-   Empfänger + Baum-Hero
-   Erwartete Twingle-Struktur:
-   <p class="motif-teaser">
-     <strong>Max Mustermann</strong><br><br>
-     <strong>1 Baum für morgen</strong><br>
-     für mehr Wald in Mecklenburg-Vorpommern.
-   </p>
+   Empfänger + Hauptaussage
    ---------------------------------------------------------- */
 
 .motif-teaser {
-  margin: 0 auto 11mm;
+  margin: 0 auto 12mm !important;
   color: #2d2a26;
   font-size: 11.5pt;
   line-height: 1.45;
   text-align: center;
 }
 
-/* "Für" vor dem Namen ergänzen */
+/* "Für" */
 .motif-teaser::before {
   content: "Für";
   display: block;
@@ -92,10 +138,10 @@ h1 {
   margin-bottom: 0;
 }
 
-/* Hauptaussage: 1 BAUM FÜR MORGEN / 2 BÄUME FÜR MORGEN ... */
+/* Hauptaussage: 1 BAUM / 2 BÄUME ... FÜR MORGEN */
 .motif-teaser strong:nth-of-type(2) {
   display: inline-block;
-  margin-top: 10mm;
+  margin-top: 11mm;
   margin-bottom: 2mm;
   color: #23573c;
   font-size: 31pt;
@@ -110,7 +156,7 @@ h1 {
 
 .message {
   box-sizing: border-box;
-  margin: 0 auto 12mm;
+  margin: 0 auto 13mm !important;
   padding: 7mm 9mm;
   background: #ecefe5;
   color: #2d2a26;
@@ -126,9 +172,7 @@ h1 {
 }
 
 /* ----------------------------------------------------------
-   Motivbeschreibung
-   Soll in Twingle leer bleiben.
-   Sicherheitshalber ausblenden.
+   Alte Motivbeschreibung vollständig ausblenden
    ---------------------------------------------------------- */
 
 .motif-text {
@@ -137,17 +181,11 @@ h1 {
 
 /* ----------------------------------------------------------
    Unterer Infoblock
-   Twingle-Inhalt:
-   <strong>Ein Geschenk, das bleibt.</strong>
-   ...
-   <strong>Dazu laden wir dich herzlich ein.</strong>
-   ...
-   <strong>@waldstiftungmv</strong>
    ---------------------------------------------------------- */
 
 .project-info-text2 {
   max-width: 156mm;
-  margin: 0 auto;
+  margin: 0 auto !important;
   color: #2d2a26;
   font-size: 10.5pt;
   line-height: 1.58;
@@ -155,7 +193,7 @@ h1 {
   text-align: center;
 }
 
-/* erste Hervorhebung = "Ein Geschenk, das bleibt." */
+/* "Ein Geschenk, das bleibt." */
 .project-info-text2 strong:first-of-type {
   display: inline-block;
   margin-bottom: 3.5mm;
@@ -165,7 +203,7 @@ h1 {
   font-weight: 700;
 }
 
-/* alle weiteren Hervorhebungen bewusst NICHT größer setzen */
+/* weitere Hervorhebungen bewusst klein halten */
 .project-info-text2 strong:not(:first-of-type) {
   color: #23573c;
   font-size: 10.5pt;
@@ -173,15 +211,14 @@ h1 {
   font-weight: 700;
 }
 
-/* Falls Twingle Absätze setzt: gleichmäßige Abstände */
 .project-info-text2 p {
   margin: 0 0 3mm;
 }
 
 /* ----------------------------------------------------------
    Twingle-Logo
-   NICHT per CSS einbinden.
-   Es wird aus Organisationseinstellungen > Design > Logo gezogen.
+   NICHT per CSS einbinden oder verschieben.
+   Twingle zieht es aus Organisationseinstellungen > Design > Logo.
    ---------------------------------------------------------- */
 
 /* ----------------------------------------------------------
