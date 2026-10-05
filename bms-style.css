@@ -210,6 +210,14 @@ h1 {
   margin: 0 0 3mm;
 }
 
+.logo,
+.organisation-logo,
+.organization-logo {
+  margin-top: 7mm !important;
+  margin-left: 8mm !important;
+}
+
+
 /* ----------------------------------------------------------
    Twingle-Logo
    NICHT per CSS einbinden oder verschieben.
